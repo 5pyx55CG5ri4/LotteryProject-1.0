@@ -2,6 +2,7 @@
 import random
 import redis_tool
 import request_tool
+import email_tool
 class base_lotter_class:
     
     #获取最新一期彩票开奖的API接口
@@ -22,21 +23,23 @@ class base_lotter_class:
     lotter_type = None 
     #彩票编号
     lottery_id = None
-    
+    #彩票名称
+    lottery_str = None
+    isTheSame = False
+    lottery_img = None
     def __init__(self) -> None:
         pass
 
     #随机生成一组红球和蓝球
-    def lotteryFun(self):
+    def lotteryFun(self,redBool,blueBool):
+        self.isTheSame = False
         redBool = self.boolFun(self.red_number,self.def_red_ball_pool)
         if self.isTheSame == True:
-           self.lotteryFun()
-        self.isTheSame = False   
+           return self.lotteryFun(redBool,blueBool)
         redBool.sort()
         blueBool = self.boolFun(self.blue_number,self.def_blue_ball_pool)
         if self.isTheSame == True:
-           self.lotteryFun()
-        self.isTheSame = False   
+           return self.lotteryFun(redBool,blueBool)
         blueBool.sort()
         return redBool + blueBool
     
@@ -82,16 +85,30 @@ class base_lotter_class:
         if weekedDay == 0:
             return 7
         else:
-            return weekedDay - 1     
+            return weekedDay - 1
+    def getOpenByUrl(self):
+        return request_tool.request_tool().getNowOpen(self.open_base_url)
+    def getValueByName(self,d,name):
+        return d[name]
+    def getLastOpenNumber(self,d,name):
+        return list(map(int,d[name].split(',')))
     #比较开奖号码和机选号码
-    def compare_numbers(self,lastNumbers):
+    def compare_numbers(self,lastOpenNumber,lastNumbers):
         listRet = []
         if lastNumbers == None:
-            return lastNumbers
-        res = request_tool.request_tool().getNowOpen(self.open_base_url)
-        openNumbers = list(map(int,res['res'].split(',')))
+            return listRet
+        openNumbers = lastOpenNumber
+        if openNumbers == None:
+            return listRet
         for i in range(0,len(openNumbers)):
             if(openNumbers[i] == lastNumbers[i]):
                 listRet.append(openNumbers[i])
         return listRet
+    #发机选号码给指定邮箱    
+    def sendRandomNumber(self,toEmail,h,c):
+        e = email_tool.email_tool()
+        if toEmail != None:
+            e.setToEmail(toEmail)
+        e.send(h,c,'html')    
+
              
