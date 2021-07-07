@@ -4,9 +4,9 @@ from datetime import datetime
 
 def mainFun(number):
     weekedDay = datetime.today().isoweekday()
+    bringsDay = [1,3,6]
+    twoColorBallDay = [2,4,7]
     for i in range(0, number):
-        bringsDay = [1,3,6]
-        twoColorBallDay = [2,4,7]
         if weekedDay in bringsDay:
             print("大乐透")
             base = brings_class.brings_class()
