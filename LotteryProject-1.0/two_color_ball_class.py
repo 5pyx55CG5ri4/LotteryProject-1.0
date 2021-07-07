@@ -10,3 +10,6 @@ class two_color_ball_class(base_lottery_class.base_lotter_class):
         self.red_number = 6
         self.blue_number = 1
         self.isTheSame = False
+        self.lotter_type = 'two_color_ball'
+        self.lottery_id = 'ssq'
+        self.open_base_url = self.open_base_url.format(self.lottery_id)

@@ -10,4 +10,7 @@ class brings_class(base_lottery_class.base_lotter_class):
         self.red_number = 5
         self.blue_number = 2
         self.isTheSame = False
+        self.lotter_type = 'brings'
+        self.lottery_id = 'dlt'
+        self.open_base_url = self.open_base_url.format(self.lottery_id)
      
