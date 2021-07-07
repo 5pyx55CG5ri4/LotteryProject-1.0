@@ -5,10 +5,10 @@ class request_tool():
 
     def __init__(self) -> None:
         pass
-    
+    #发送Get请求
     def get(self,url):
        return requests.get(url).text
-    
+    #获取最新一期的开奖号码
     def getNowOpen(self,url):
         jsonstr = self.get(url)
         obj = json.loads(jsonstr)
@@ -20,4 +20,4 @@ class request_tool():
         res['res'] = resultObj['lottery_res']
         return res
 
-print(request_tool().getNowOpen('http://apis.juhe.cn/lottery/query?lottery_id=dlt&lottery_no=&key=d6bdcbef0fcf747ecd2f74426df5fe93'))
+#print(request_tool().getNowOpen('http://apis.juhe.cn/lottery/query?lottery_id=dlt&lottery_no=&key=d6bdcbef0fcf747ecd2f74426df5fe93'))

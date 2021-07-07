@@ -2,6 +2,7 @@ import brings_class
 import two_color_ball_class
 from datetime import datetime
 
+#主方法
 def mainFun(number):
     weekedDay = datetime.today().isoweekday()
     bringsDay = [1,3,6]
