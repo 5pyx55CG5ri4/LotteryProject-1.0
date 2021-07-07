@@ -1,6 +1,8 @@
 # python 彩票机选项目  
 >__开发环境:__  
->* python3.x
+>python3.x  
+>项目依赖:  
+>redis,requests,json
 ##
 >__目前功能:__
 >- [x] 实现大乐透和双色球机选号  
