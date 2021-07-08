@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #大乐透
 import base_lottery_class
 

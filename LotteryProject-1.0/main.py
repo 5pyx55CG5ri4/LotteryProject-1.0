@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import brings_class
 import two_color_ball_class
 from datetime import datetime

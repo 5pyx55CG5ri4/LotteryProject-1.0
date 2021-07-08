@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #双色球
 import base_lottery_class
 import random

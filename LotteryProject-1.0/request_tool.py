@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #获取最新一期开奖记录API
 import requests
 import json

@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #缓存操作
 import redis
 class redis_tool():

@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 class str_tool():
     #标题模板
     h_str_template = '{}{}'

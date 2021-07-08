@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 #彩票基类
 import random
 import redis_tool
