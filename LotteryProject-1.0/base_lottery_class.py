@@ -83,7 +83,7 @@ class base_lotter_class:
          return str(self.lotter_type + '$' + str(weekedDay) + '$' + str(index))
     #获取昨天的星期编号
     def getLastWeekedDay(self,weekedDay):
-        if weekedDay == 0:
+        if weekedDay == 1:
             return 7
         else:
             return weekedDay - 1
