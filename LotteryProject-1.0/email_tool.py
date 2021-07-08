@@ -13,7 +13,7 @@ from email.utils import parseaddr, formataddr
 class email_tool():
 
     username = 'fleamarket@aliyun.com'
-    password = 'lyp82nlf'
+    password = '*********'
     replyto = 'fleamarket@aliyun.com'
     rcptto = ['zhu990611@gmail.com','1559422960@qq.com']
 

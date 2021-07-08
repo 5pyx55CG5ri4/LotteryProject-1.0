@@ -7,11 +7,11 @@ class redis_tool():
         self.connectionRedis()
     #创建链接   
     def connectionRedis(self):
-        pool = redis.ConnectionPool(host='167.179.103.34', port=6379, decode_responses=True)
+        pool = redis.ConnectionPool(host='********', port=6379, decode_responses=True)
         self.redisInstance = redis.Redis(connection_pool=pool)
     #缓存字符串类型的值
     def setValue(self,k,v):
-        self.redisInstance.set(k,v)
+        self.redisInstance.set(k,v,ex= 90000)
     #获取字符串类型的值
     def getValue(self,k):
         return self.redisInstance.get(k)
