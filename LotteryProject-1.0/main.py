@@ -22,6 +22,9 @@ def mainFun(number):
         print("双色球")
         base = two_color_ball_class.two_color_ball_class()
         lastBase = brings_class.brings_class()
+    if base == None:
+        print('今天周五')
+        return
     #昨日的机选号码
     h = sObj.h_str_template.format(base.lottery_str,str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))+'机选号码')
     c = ''
@@ -33,7 +36,7 @@ def mainFun(number):
         #缓存今日机选号码
         base.set_now_day(base.assembly_key(weekedDay,i),value)
         #获取昨日机选号码
-        lastNumber = base.get_now_day(base.assembly_key(base.getLastWeekedDay(weekedDay),i))
+        lastNumber = lastBase.get_now_day(lastBase.assembly_key(lastBase.getLastWeekedDay(weekedDay),i))
         #lastNumber = base.get_now_day(base.assembly_key(weekedDay,i))
         lastRandomNumber[i] = lastNumber
 
